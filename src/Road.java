@@ -10,11 +10,15 @@ import javax.swing.*;
  * чтобы что-то поместить на frame, надо его сначала поместить в jpanel
  */
 public class Road extends JPanel implements ActionListener {
-
-    Timer mainTimer = new Timer(20, this); // каждые 20 миллисекунд будет запускать метод actionPerformed
+	
+    Timer mainTimer = new Timer(20, this); // каждые 20 миллисекунд будет запускать метод actionPerformed по обьекту this
 
     Image img = new ImageIcon("res/road2.png").getImage();
     Player player = new Player();
+    
+     public Road() {
+    	 mainTimer.start();
+	}
 
     /**
      * override paint() in JComponent
@@ -35,6 +39,7 @@ public class Road extends JPanel implements ActionListener {
      */
     @Override
     public void actionPerformed(ActionEvent e) {
-
+    	player.move();
+    	repaint(); // перерисовывает paint()
     }
 }

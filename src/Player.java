@@ -3,7 +3,7 @@ import java.awt.Image;
 
 public class Player {
     Image img = new ImageIcon("res/player.png").getImage();
-    int v = 40; // скорость, например 40 пикселей в час
+    int v = 10; // скорость, например 40 пикселей в час
     int dv = 0; // ускорение
     int s = 0; // полный путь
 
