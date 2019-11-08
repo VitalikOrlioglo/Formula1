@@ -3,6 +3,8 @@ import java.awt.Graphics2D;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 
 import javax.swing.*;
 
@@ -19,6 +21,17 @@ public class Road extends JPanel implements ActionListener {
      public Road() {
     	 mainTimer.start();
 	}
+     
+     private class myKeyAdapter extends KeyAdapter {
+    	// при нажатии на клавишу
+		public void keyPressed(KeyEvent e) {
+			player.keyPressed(e);
+		}
+		// при отпускании клавиши
+		public void keyReleased(KeyEvent e) {
+			player.keyReleased(e);
+		}
+	}
 
     /**
      * override paint() in JComponent
@@ -28,7 +41,8 @@ public class Road extends JPanel implements ActionListener {
     @Override
     public void paint(Graphics g){
 //        g = (Graphics2D) g;
-        g.drawImage(img, player.layer1,0, null); // рисуем дорогу
+        g.drawImage(img, player.layer1,0, null); // рисуем первый слой
+        g.drawImage(img, player.layer2,0, null); // рисуем второй слой
         g.drawImage(player.img, player.x, player.y, null); // рисуем player
     }
 
