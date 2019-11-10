@@ -20,9 +20,11 @@ public class Road extends JPanel implements ActionListener {
     
      public Road() {
     	 mainTimer.start();
+    	 addKeyListener(new MyKeyAdapter()); // регистрируем слушателя
+         setFocusable(true); // фокусируемся на дороге, чтобы обрабатывались все нажатия на клавиатуру
 	}
      
-     private class myKeyAdapter extends KeyAdapter {
+     private class MyKeyAdapter extends KeyAdapter {
     	// при нажатии на клавишу
 		public void keyPressed(KeyEvent e) {
 			player.keyPressed(e);

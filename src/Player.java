@@ -17,7 +17,7 @@ public class Player {
 
     public void move() {
         s += v; // сколько проехали
-        if (layer2-v <= 0) {
+        if (layer2-v == 0) {
 			layer1 = 0;
 			layer2 = 1200;
 		} else {
@@ -28,11 +28,15 @@ public class Player {
     
     // при нажатии на клавишу
  	public void keyPressed(KeyEvent e) {
- 		JOptionPane.showConfirmDialog(null, "key pressed");
+// 		JOptionPane.showMessageDialog(null, "key pressed");
+        int key = e.getKeyCode();
+        if (key == KeyEvent.VK_RIGHT) { // VK_RIGHT - код клавиши вправо
+            
+        }
  	}
  	
  	// при отпускании клавиши
  	public void keyReleased(KeyEvent e) {
- 		JOptionPane.showConfirmDialog(null, "key released");
+// 		JOptionPane.showMessageDialog(null, "key released");
  	}
 }
